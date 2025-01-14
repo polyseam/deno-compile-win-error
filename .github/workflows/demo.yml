@@ -1,4 +1,4 @@
-# run deno compile on every push to main branch
+# demonstrate the issue with deno 2.1.5 on windows
 name: "deno compile 2.1.5 broken on windows"
 on:
   push:
