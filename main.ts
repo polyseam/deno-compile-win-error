@@ -5,6 +5,7 @@ if (import.meta.main) {
 
   try {
     console.log("homedir:", home);
+
     throw new Error(
       "this will not be logged if compiled\nfor windows on deno v2.1.5",
     );
