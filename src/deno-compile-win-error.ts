@@ -1,12 +1,18 @@
-// import { ensureDirSync } from "@std/fs";
+import { ensureDirSync } from "@std/fs";
 import { homedir } from "node:os";
-// import * as path from "@std/path";
-import { delay } from "@std/async";
+import * as path from "@std/path";
 
-export async function denoCompileWinError() {
-  await delay(1);
+export function denoCompileWinError() {
   const home = homedir();
-  if (home) {
-    console.log(`This will not be printed when compiled for windows`);
+  const whereTheProblemsAre = path.join(home, "problematic");
+
+  try {
+    ensureDirSync(whereTheProblemsAre);
+
+    throw new Error(
+      "this will not be logged if compiled\nfor windows on deno v2.1.5",
+    );
+  } catch (err) {
+    console.error(err as Error);
   }
 }
