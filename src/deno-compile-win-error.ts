@@ -1,15 +1,13 @@
 // import { ensureDirSync } from "@std/fs";
 import { homedir } from "node:os";
-import * as path from "@std/path";
+// import * as path from "@std/path";
 
 export function denoCompileWinError() {
   const home = homedir();
-  const whereTheProblemsAre = path.join(home, "problematic");
+//   const whereTheProblemsAre = path.join(home, "problematic");
 
   try {
-    //ensureDirSync(whereTheProblemsAre);
-
-    console.log(whereTheProblemsAre)
+    console.log(home)
 
     throw new Error(
       "this will not be logged if compiled\nfor windows on deno v2.1.5",
