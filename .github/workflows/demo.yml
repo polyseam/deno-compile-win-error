@@ -38,7 +38,7 @@ jobs:
       - name: run binary for macos successfully
         run: ./no-issue-mac
 
-  bin-build-test-windows-broken:
+  compile-and-run-win-broken:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
