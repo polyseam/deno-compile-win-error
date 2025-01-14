@@ -1,0 +1,55 @@
+# run deno compile on every push to main branch
+name: "deno compile 2.1.5 broken on windows"
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  compile-and-run-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: "v2.1.5"
+
+      - name: deno task compile-linux
+        run: deno task compile-linux
+
+      - name: run binary for linux successfully
+        run: ./repro-linux
+
+  compile-and-run-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: "v2.1.5"
+
+      - name: deno task compile-mac
+        run: deno task compile-mac
+
+      - name: run binary for macos successfully
+        run: ./no-issue-mac
+
+  bin-build-test-windows-broken:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: "v2.1.5" # you can change this to v2.1.4 and prove there is no issue there
+
+      - name: deno task compile-win
+        run: deno task compile-win
+
+      - name: demo broken binary for windows (2.1.5)
+        run: ./repro-win.exe
