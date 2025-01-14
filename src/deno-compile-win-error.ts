@@ -4,11 +4,9 @@ import { homedir } from "node:os";
 
 export function denoCompileWinError() {
   const home = homedir();
-//   const whereTheProblemsAre = path.join(home, "problematic");
 
   try {
     console.log(home)
-
     throw new Error(
       "this will not be logged if compiled\nfor windows on deno v2.1.5",
     );
