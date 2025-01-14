@@ -46,7 +46,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v2
         with:
-          deno-version: "v2.1.5" # you can change this to v2.1.4 and prove there is no issue there
+          deno-version: "main" # you can change this to v2.1.4 and prove there is no issue there
 
       - name: deno task compile-win
         run: deno task compile-win
