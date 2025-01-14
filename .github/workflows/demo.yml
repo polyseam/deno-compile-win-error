@@ -20,7 +20,7 @@ jobs:
         run: deno task compile-linux
 
       - name: run binary for linux successfully
-        run: ./repro-linux
+        run: ./no-issue-linux
 
   compile-and-run-mac:
     runs-on: macos-latest
